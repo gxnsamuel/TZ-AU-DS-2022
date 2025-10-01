@@ -4,17 +4,29 @@ A comprehensive, structured dataset of Tanzania's administrative divisions extra
 
 ## 📊 Dataset Overview
 
-This repository contains a complete hierarchical dataset of Tanzania's administrative structure, including:
+This repository contains comprehensive datasets of Tanzania's administrative structure and population statistics:
 
+### Administrative Units Dataset
 - **31 Regions** (Mikoa)
 - **194 Councils** (District Councils, Municipal Councils, Town Councils, and City Councils)
 - **4,296 Wards** (Kata)
 
-The data is structured in a JSON format that reflects the administrative hierarchy of the United Republic of Tanzania.
+### Population Statistics Dataset (NEW!)
+Complete population statistics from the 2022 Population and Housing Census including:
+- **Population by Sex**: Total, Male, Female populations at all administrative levels
+- **Sex Ratio**: Male to female ratio per 100 females
+- **Households**: Total number of households
+- **Average Household Size**: Mean household size
+- **Coverage**: All 31 regions, 194 councils, and 4,295 wards
+- **Total Population**: 59,716,173 people
+
+All data is structured in JSON format that reflects the administrative hierarchy of the United Republic of Tanzania.
 
 ## 🗂️ Data Structure
 
-The dataset follows a hierarchical structure:
+### Administrative Units Dataset (`dataset.json`)
+
+The administrative units dataset follows a hierarchical structure:
 
 ```json
 {
@@ -41,6 +53,57 @@ The dataset follows a hierarchical structure:
 }
 ```
 
+### Population Statistics Dataset (`population_stats.json`)
+
+The population statistics dataset extends the hierarchical structure with comprehensive demographic data:
+
+```json
+{
+  "country": "Tanzania",
+  "source": "2022 Population and Housing Census (PHC)",
+  "regions": [
+    {
+      "region": "Dodoma",
+      "population": {
+        "both_sexes": 3085625,
+        "male": 1512760,
+        "female": 1572865,
+        "sex_ratio": 96,
+        "households": 757821,
+        "average_household_size": 4.1
+      },
+      "councils": [
+        {
+          "type": "district_council",
+          "name": "Kondoa",
+          "population": {
+            "both_sexes": 244854,
+            "male": 124379,
+            "female": 120475,
+            "sex_ratio": 103,
+            "households": 52677,
+            "average_household_size": 4.6
+          },
+          "wards": [
+            {
+              "name": "Changaa",
+              "population": {
+                "both_sexes": 8436,
+                "male": 4340,
+                "female": 4096,
+                "sex_ratio": 106,
+                "households": 1871,
+                "average_household_size": 4.5
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
+
 ### Administrative Levels
 
 1. **Country Level**: Tanzania (United Republic of Tanzania)
@@ -54,26 +117,35 @@ The dataset follows a hierarchical structure:
 
 ## 📈 Statistical Summary
 
-### Regional Distribution
+### National Statistics
 
-| Region | Councils | Wards | Region | Councils | Wards |
-|--------|----------|-------|--------|----------|-------|
-| Dodoma | 8 | 209 | Rukwa | 4 | 97 |
-| Arusha | 7 | 155 | Kigoma | 8 | 139 |
-| Kilimanjaro | 7 | 165 | Shinyanga | 5 | 130 |
-| Tanga | 11 | 242 | Kagera | 8 | 192 |
-| Morogoro | 9 | 192 | Mwanza | 8 | 191 |
-| Pwani | 9 | 132 | Mara | 9 | 178 |
-| Dar es Salaam | 5 | 102 | Manyara | 7 | 141 |
-| Lindi | 6 | 151 | Njombe | 6 | 107 |
-| Mtwara | 9 | 190 | Katavi | 5 | 57 |
-| Ruvuma | 8 | 171 | Simiyu | 6 | 133 |
-| Iringa | 5 | 102 | Geita | 6 | 122 |
-| Mbeya | 7 | 177 | Songwe | 5 | 93 |
-| Singida | 7 | 136 | Kaskazini Unguja | 2 | 75 |
-| Tabora | 8 | 206 | Kusini Unguja | 2 | 63 |
-| Mjini Magharibi | 3 | 119 | Kaskazini Pemba | 2 | 61 |
-| Kusini Pemba | 2 | 68 | | | |
+- **Total Population**: 59,716,173 people
+- **Male**: 29,445,413 (49.3%)
+- **Female**: 30,270,760 (50.7%)
+- **Sex Ratio**: 97 males per 100 females
+- **Total Households**: 14,455,335
+- **Average Household Size**: 4.1 people per household
+
+### Regional Distribution (with Population)
+
+| Region | Councils | Wards | Population | Region | Councils | Wards | Population |
+|--------|----------|-------|------------|--------|----------|-------|------------|
+| Dodoma | 8 | 209 | 3,085,625 | Rukwa | 4 | 97 | 1,540,519 |
+| Arusha | 7 | 155 | 2,356,255 | Kigoma | 8 | 139 | 2,470,967 |
+| Kilimanjaro | 7 | 165 | 1,861,934 | Shinyanga | 5 | 130 | 2,241,299 |
+| Tanga | 11 | 242 | 2,615,597 | Kagera | 8 | 192 | 2,989,299 |
+| Morogoro | 9 | 192 | 3,197,104 | Mwanza | 8 | 191 | 3,699,872 |
+| Pwani | 9 | 132 | 1,425,131 | Mara | 9 | 178 | 2,372,015 |
+| Dar es Salaam | 5 | 102 | 5,383,728 | Manyara | 7 | 141 | 1,892,502 |
+| Lindi | 6 | 151 | 1,015,393 | Njombe | 6 | 107 | 889,946 |
+| Mtwara | 9 | 190 | 1,457,670 | Katavi | 5 | 57 | 1,152,958 |
+| Ruvuma | 8 | 171 | 1,848,794 | Simiyu | 6 | 133 | 2,140,497 |
+| Iringa | 5 | 102 | 1,192,728 | Geita | 6 | 122 | 2,977,608 |
+| Mbeya | 7 | 177 | 2,343,754 | Songwe | 5 | 93 | 1,344,687 |
+| Singida | 7 | 136 | 2,008,058 | Kaskazini Unguja | 2 | 75 | 257,290 |
+| Tabora | 8 | 206 | 3,391,679 | Kusini Unguja | 2 | 63 | 195,873 |
+| Mjini Magharibi | 3 | 119 | 893,169 | Kaskazini Pemba | 2 | 61 | 272,091 |
+| Kusini Pemba | 2 | 68 | 271,350 | | | | |
 
 ### Council Type Distribution
 
@@ -84,9 +156,19 @@ The dataset follows a hierarchical structure:
 
 ## 💾 Data Files
 
-- **`dataset.json`**: The complete administrative units dataset in JSON format (UTF-8 encoded)
-- **`extract_admin_units.py`**: Python script used to extract data from the PDF report
-- **`Administrative_units_Population_Distribution_Report_Tanzania_volume1a.pdf`**: Source PDF document
+### Core Datasets
+
+- **`dataset.json`**: Complete administrative units dataset with regions, councils, and wards in hierarchical JSON format (UTF-8 encoded)
+- **`population_stats.json`**: Comprehensive population statistics for all administrative units including population by sex, sex ratio, households, and average household size (1.4MB, UTF-8 encoded)
+
+### Extraction Scripts
+
+- **`extract_admin_units.py`**: Python script to extract administrative units (regions, councils, wards) from the PDF report
+- **`extract_population_stats.py`**: Python script to extract population statistics from pages 54-286 of the PDF report
+
+### Source Document
+
+- **`Administrative_units_Population_Distribution_Report_Tanzania_volume1a.pdf`**: Official source PDF document from the 2022 Population and Housing Census
 
 ## 🔍 Data Source & Reliability
 
@@ -118,7 +200,7 @@ This dataset is extracted from the **official 2022 Population and Housing Census
 
 ## 🚀 Usage Examples
 
-### Python
+### Python - Administrative Units
 
 ```python
 import json
@@ -145,6 +227,51 @@ total_wards = sum(
     for council in region['data']
 )
 print(f"Total wards: {total_wards}")
+```
+
+### Python - Population Statistics
+
+```python
+import json
+
+# Load the population statistics
+with open('population_stats.json', 'r', encoding='utf-8') as f:
+    pop_data = json.load(f)
+
+# Get total population
+total_pop = sum(
+    region['population'].get('both_sexes', 0)
+    for region in pop_data['regions']
+)
+print(f"Total Tanzania population: {total_pop:,}")
+
+# Get top 5 most populous regions
+regions_by_pop = sorted(
+    pop_data['regions'],
+    key=lambda r: r['population'].get('both_sexes', 0),
+    reverse=True
+)[:5]
+
+print("\nTop 5 most populous regions:")
+for region in regions_by_pop:
+    pop = region['population']
+    print(f"{region['region']}: {pop['both_sexes']:,} people")
+    print(f"  Male: {pop['male']:,}, Female: {pop['female']:,}")
+    print(f"  Households: {pop['households']:,}, Avg size: {pop['average_household_size']}")
+
+# Analyze a specific council
+dodoma_region = next(r for r in pop_data['regions'] if r['region'] == 'Dodoma')
+kondoa_council = next(c for c in dodoma_region['councils'] if c['name'] == 'Kondoa')
+
+print(f"\nKondoa District Council:")
+print(f"  Population: {kondoa_council['population']['both_sexes']:,}")
+print(f"  Number of wards: {len(kondoa_council['wards'])}")
+
+# Get ward-level statistics
+ward_populations = [w['population']['both_sexes'] for w in kondoa_council['wards']]
+print(f"  Largest ward: {max(ward_populations):,} people")
+print(f"  Smallest ward: {min(ward_populations):,} people")
+print(f"  Average ward size: {sum(ward_populations) // len(ward_populations):,} people")
 ```
 
 ### JavaScript
@@ -186,21 +313,31 @@ jq '{regions: (.regions | length), councils: [.regions[].data[]] | length, wards
 
 ### Urban Planning & Development
 - Planning infrastructure projects at ward level
-- Resource allocation based on administrative divisions
-- Identifying urban vs rural areas through council types
+- Resource allocation based on administrative divisions and population density
+- Identifying urban vs rural areas through council types and population statistics
+- Population-based service planning (schools, hospitals, water systems)
 
 ### Government & Public Administration
-- Electoral boundary management
-- Service delivery planning
+- Electoral boundary management with population data
+- Service delivery planning based on population distribution
 - Administrative correspondence
+- Budget allocation based on population and household counts
 
 ### Research & Academia
-- Demographic studies
+- Demographic studies and population analysis
 - Regional development research
 - Comparative analysis of administrative structures
+- Population density and urbanization studies
+- Household size and family structure research
+
+### Healthcare & Social Services
+- Healthcare facility planning based on population distribution
+- Disease surveillance and health program targeting
+- Social welfare program implementation
+- Family planning initiatives using household data
 
 ### Technology & Software Development
-- Location-based services
+- Location-based services with population context
 - Address validation systems
 - Geographic information systems (GIS)
 - Mobile applications requiring administrative data
@@ -249,16 +386,33 @@ jq '{regions: (.regions | length), councils: [.regions[].data[]] | length, wards
 - **Next Update**: Expected with next census (typically every 10 years)
 
 ### Known Limitations
+
+#### Administrative Units Dataset (`dataset.json`)
 1. This dataset does not include:
    - Sub-ward divisions (Mtaa/Vitongoji)
-   - Population figures (available in the source PDF)
+   - Population figures (see `population_stats.json`)
    - Geographic coordinates
-   - Demographic details
+   - Demographic details beyond administrative structure
 
-2. Administrative boundaries may change between censuses due to:
+#### Population Statistics Dataset (`population_stats.json`)
+1. This dataset does not include:
+   - Sub-ward population breakdown
+   - Age and gender disaggregation beyond male/female totals
+   - Socioeconomic indicators
+   - Geographic coordinates
+   - Historical population trends
+
+#### General Limitations
+1. Administrative boundaries may change between censuses due to:
    - Creation of new regions
    - Elevation of town councils to municipalities
    - Ward boundary adjustments
+
+2. Data completeness:
+   - All 4,295 wards have complete population statistics
+   - 191 of 194 councils have council-level population totals
+   - 30 of 31 regions have regional-level population totals
+   - Some regional/council totals are missing due to PDF formatting variations
 
 ## 🤝 Contributing
 
